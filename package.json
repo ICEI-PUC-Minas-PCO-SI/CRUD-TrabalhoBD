@@ -1,0 +1,17 @@
+{
+  "name": "crud-trabalhobd",
+  "version": "1.0.0",
+  "description": "O projeto consiste na criação de um sistema CRUD (Create, Read, Update, Delete) para gerenciar um conjunto de dados de maneira eficiente. O objetivo principal é implementar uma aplicação funcional que permita a interação com um banco de dados, utilizando operações básicas de persistência.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.7"
+  }
+}
