@@ -15,4 +15,10 @@ function AlternarDivs(div1, div2) {
     }
 }
 
+document.getElementById('formlogar').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    console.log(10);
+    window.location.href = "/homepage.html";
+});
+
   
