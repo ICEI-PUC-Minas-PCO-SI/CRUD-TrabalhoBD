@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+
+<body>
+    <div class="fundopreto" id="fundopreto" style="display: none;"></div>
+    <div id="formularios">
+        <div class="login-area" id="login-area" display="block">
+            <div class="login" id="login-div">
+                <div><img src="assets/img/bolo.png"></div>
+                <form method="post">
+                    <input type="text" name="nome" placeholder="Nome de usuário" autofocus>
+                    <input type="password" name="senha" placeholder="Sua senha">
+                    <input type="submit" value="entrar">
+                </form>
+                <p>Não tem uma conta? <button onclick="AlternarDivs('login-area','cadastro-area')">Cadastrar-se</button>
+                </p>
+            </div>
+        </div>
+        <div class="cadastro-area" id="cadastro-area" style="display: none;">
+            <div class="cadastro" id="cadastro-div">
+                <div><img src="assets/img/bolo.png"></div>
+                <form>
+                    <input type="text" name="cadastronome" placeholder="Nome" >
+                    <input type="text" name="cadastroendereco" placeholder="Endereço" >
+                    <input type="email" name="cadastroemail" placeholder="E-mail" >
+                    <input type="password" name="cadastrosenha" placeholder="Senha">
+                    <input type="password" name="confirmarsenha" placeholder="Confirma senha">
+                    <input onclick="AlternarDivs('cadastro-area','login-area')" type="submit" value="Cadastrar">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="assets/js/logincadastro.js"></script>
+</body>
+
+</html>
