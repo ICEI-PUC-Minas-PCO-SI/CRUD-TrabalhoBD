@@ -9,9 +9,10 @@ app.get('/', (req, res)=> {
   res.sendFile(path.join(__dirname, '../public', 'login.html'));
 });
 
+app.use(express.json());
+
 app.use('/api', userRouter);
 
-app.use(express.json());
 app.listen(8000, ()=>{
     console.log(`Servidor rodando na porta ${8000}`);
 });
