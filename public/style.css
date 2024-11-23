@@ -1,0 +1,157 @@
+body {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 300 !important;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa !important;
+}
+
+h4{
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+h5{
+  color: #653e31 !important;
+}
+
+.navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B4A8B8 !important;
+  z-index: 1000;
+  box-shadow: 0 1px 1px #f9e9e7;
+}
+
+.navbar-nav .nav-link {
+  color: #f9e9e7 !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e8d2cf !important; 
+}
+
+header {
+  padding-top: 20px;
+  background-color: #f9e9e7;
+  box-shadow: 0 2px 4px #B4A8B8;
+}
+
+.container h4 {
+  color: #97809b;
+}
+
+.container p {
+  font-size: 0.9rem;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+#cardapio {
+  margin-top: 50px;
+}
+
+#cardapio h4, #cardapio h5 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.card-img-overlay {
+  background-color: rgba(146, 132, 145, 0.5); 
+  color: white; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  margin: 0; 
+}
+
+
+footer {
+  background-color: #B4A8B8;
+  color: #f9e9e7;
+  padding: 20px 0;
+  margin-top: 40px;
+  border-top: 1px solid #fafaf5;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1000px) {
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+  .card-decoracao img {
+    width: 100%;
+    height: auto;
+  }
+  
+}
+
+@media (max-width: 1200px) {
+  .img-sobre {
+    width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  .img-sobre {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-sobre {
+    width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .img-sobre {
+    width: 60%;
+  }
+}
+
+@media (max-width: 480px) {
+  .img-sobre {
+    width: 50%;
+  }
+}
