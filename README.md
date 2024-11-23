@@ -21,7 +21,11 @@ O projeto consiste na criação de um sistema CRUD (Create, Read, Update, Delete
 #### **Tecnologias Sugeridas**:
 - **Frontend**: HTML, CSS, JavaScript.
 - **Backend**: Node.js e express.
+<<<<<<< HEAD
 - **Banco de Dados**: PostGre.
+=======
+- **Banco de Dados**: MySQLB.
+>>>>>>> ae2bb4bf85a2f75919aa5d84a6a2a1d70999ad52
 
 #### **Tema**:
 - Sistema de gerenciamento de usuários.
