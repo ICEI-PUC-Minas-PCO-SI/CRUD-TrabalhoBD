@@ -1,10 +1,10 @@
 const OrdersModel = require("../model/Orders");
 
 async function AddOrderController(req, res) {
-    const {orderId, date, finalValue, userId, combinationId} = req.body;
+    const {finalValue, userId, combinationId} = req.body;
 
     try{
-        const Order = await OrdersModel.addOrder(orderId, date, finalValue, userId, combinationId);
+        const Order = await OrdersModel.addOrder(finalValue, userId, combinationId);
         res.status(201).json(Order);
     }
     catch(error){
