@@ -15,9 +15,9 @@
         <div class="login-area" id="login-area" display="block">
             <div class="login" id="login-div">
                 <div><img src="assets/img/bolo.png"></div>
-                <form id="formlogar" method="post">
-                    <input type="text" name="nome" placeholder="Nome de usuário" autofocus>
-                    <input type="password" name="senha" placeholder="Sua senha">
+                <form id="formlogar">
+                    <input type="email" name="nome" id="email-login" placeholder="Email" autofocus>
+                    <input type="password" id="password-login" name="senha" placeholder="Senha">
                     <input type="submit" value="entrar">
                 </form>
                 <p>Não tem uma conta? <button id="entrar" onclick="AlternarDivs('login-area','cadastro-area')">Cadastrar-se</button>
