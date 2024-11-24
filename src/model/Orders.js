@@ -10,6 +10,26 @@ const addOrder = async (finalValue, userId, combinationId) => {
     }
 };
 
+const getAllOrders = async() => {
+    try {
+        const result = await pool.query(`SELECT *FROM pedidos`);
+        return result.rows;
+    }catch(error) {
+        console.error("Erro ao exibir todos os pedidos Model");
+    }
+};
+
+const deleteOrderById = async (orderId) => {
+    try {
+        const result = await pool.query(`DELETE FROM pedidos WHERE id_pedido = $1`, [orderId]);
+        console.log(`Pedido ${orderId} deletado com sucesso`);
+    } catch (error) {
+        console.error(`Erro ao deletar pedido ${orderId} `, error.message);
+    }
+};
+
 module.exports = {
-    addOrder
+    addOrder,
+    getAllOrders,
+    deleteOrderById
 }
