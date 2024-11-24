@@ -15,7 +15,7 @@ const orderTable = `CREATE TABLE IF NOT EXISTS pedidos (
                           valor_total DECIMAL,
                           id_usuario TEXT NOT NULL,
                           id_combinacao TEXT NOT NULL,
-                          FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+                          FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
                           FOREIGN KEY (id_combinacao) REFERENCES combinacoes(id_combinacao) ON DELETE CASCADE
                            );
                           `;
@@ -31,19 +31,11 @@ const combinationTable = `CREATE TABLE IF NOT EXISTS combinacoes (
                                 `;
 
 const createUser = `INSERT INTO usuarios (id_usuario, nome, endereco, email, senha) VALUES ($1, $2, $3, $4, $5)`;
-const createOrder = `INSERT INTO pedidos (id_pedido, data, valor_total, usuario_id, combinacao_id) VALUES ($1, $2, $3, $4, $5)`;
+const createOrder = `INSERT INTO pedidos (id_pedido, data, valor_total, id_usuario, id_combinacao) VALUES ($1, $2, $3, $4, $5)`;
 const createCombination = `INSERT INTO combinacoes (id_combinacao, preco, sabor_massa, sabor_recheio, tamanho, descricao_decoracao) VALUES ($1, $2, $3, $4, $5, $6)`;
 
 const updateOrder = `UPDATE pedidos SET email = $1 WHERE id_usuario = $2`;
 
-const combinacao = {
-    combinationId: 'c456',
-    price: 59.99,
-    baseFlavour: 'baunilha',
-    fillingFlavour: 'chocolate',
-    size: 'médio',
-    decDescription: 'Cobertura com raspas de chocolate'
-};
 const createTable = async(tableName) => {
     try{
         const validateTables = {
@@ -89,7 +81,7 @@ const checkTableExistence = async (tableName) => {
         console.log("Pedido criado com sucesso");
         return result.rows[0];
     }catch(error) {
-        console.error("Erro ao criar pedido");
+        console.error("Erro ao criar pedido", error.message);
     }
   };
 
@@ -104,6 +96,4 @@ const checkTableExistence = async (tableName) => {
     }
   }
 
-  addCombination(combinacao);
-  createTable('pedidos');
 
