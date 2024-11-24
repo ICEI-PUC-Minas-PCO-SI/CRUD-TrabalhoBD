@@ -22,30 +22,30 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"></script>
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a class="navbar-brand" href="#" style="color: #efdbd8 !important">Santos Bolos e Doces</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#sobre">SOBRE</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#cardapio">CARDÁPIO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contato">CONTATO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="pedidos.html">PEDIDOS</a>
-                            </li>
-                        </ul>
-                    </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#" style="color: #efdbd8 !important">Santos Bolos e Doces</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sobre">SOBRE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#cardapio">CARDÁPIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contato">CONTATO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pedidos.html">PEDIDOS</a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
             </div>
         </nav>
         <div class="container">
@@ -65,82 +65,83 @@
         </div>
     </header>
     <main>
-        <form id="formhomepage">
-            <div class="container mt-4" id="cardapio">
+        <form id="formhomepage ">
+            <div class="container mt-4 d-flex flex-column justify-content-center" id="cardapio">
                 <h4 class="text-center">CARDÁPIO</h4>
-                <div id="opcoes" class="row">
-                    <div id="massas" class="container mt-4">
-                        <h5 class="mt-2">Massas</h5>
-                        <div class="row justify-content-center align-items-center">
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="massas" value="baunilha" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/massa3.jpg" class="card-img" alt="Massa Tradicional">
-                                    <h6 class="card-title">Baunilha</h6>
-                                </div>
-                            </label>
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="massas" value="chocolate" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/massa2.jpg" class="card-img" alt="Massa Tradicional">
-                                    <h6 class="card-title">Chocolate</h6>
-                                </div>
-                            </label>
-                        </div>
+                <div id="massas" class="container mt-4">
+                    <h5 class="mt-2">Massas</h5>
+                    <div class="row justify-content-center align-items-center">
+                        <label id="cards" class="col-md-3">
+                            <input type="radio" name="massas" value="baunilha" required>
+                            <div class="card card-decoracao mb-4 bg-dark bg-opacity-50">
+                                <img src="assets/img/massa3.jpg" class="card-img opacity-50" alt="Massa Tradicional">
+                                <h6 class="card-title">Baunilha</h6>
+                            </div>
+                        </label>
+                        <label id="cards" class="col-md-3">
+                            <input type="radio" name="massas" value="chocolate" required>
+                            <div class="card card-decoracao mb-4 bg-dark bg-opacity-50">
+                                <img src="assets/img/massa2.jpg" class="card-img opacity-50" alt="Massa Tradicional">
+                                <h6 class="card-title">Chocolate</h6>
+                            </div>
+                        </label>
                     </div>
-                    <div id="recheio" class="container mt-4">
-                        <h5 class="mt-4">Opções de Recheio</h5>
-                        <div class="row justify-content-center align-items-center">
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="recheio" value="ninho e frutas vermelhas" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/sabor1.jpg" class="card-img">
-                                    <h6 class="card-title">Ninho e Frutas Vermelhas</h6>
-                                </div>
-                            </label>
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="recheio" value="prestigio" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/sabor4.jpg" class="card-img">
-                                    <h6 class="card-title">Prestígio</h6>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <div id="tamanho" class="container mt-4">
-                        <h5 class="text-center">Tamanhos de Bolo</h5>
-                        <div class="row justify-content-center">
-                            <label id="cards" class="card-body text-center">
-                                <input type="radio" name="tamanho" value="pequeno" required>
-                                <h6 class="card-title-tamanho">Pequeno</h6>
-                                <p class="card-text">Serve até 10 pessoas.</p>
-                            </label>
-                            <label id="cards" class="card-body card text-center">
-                                <input type="radio" name="tamanho" value="medio" required>
-                                <h6 class="card-title-tamanho">Médio</h6>
-                                <p class="card-text">Serve até 20 pessoas.</p>
-                            </label>
-                        </div>
-                    </div>
-                    <div id="decoracao" class="container mt-4">
-                        <h5 class="text-center">Decoração Personalizada</h5>
-                        <div class="row justify-content-center align-items-center">
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="decoracao" value="decoracao 1" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/bolo1.jpg" class="card-img-top">
-                                </div>
-                            </label>
-                            <label id="cards" class="col-md-2">
-                                <input type="radio" name="decoracao" value="decoracao 2" required>
-                                <div class="card card-decoracao mb-4">
-                                    <img src="assets/img/bolo2.jpg" class="card-img-top">
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <input class="btn btn-success w-50" type="submit"></input>
                 </div>
+                <div id="recheio" class="container mt-4">
+                    <h5 class="mt-4">Opções de Recheio</h5>
+                    <div class="row justify-content-center align-items-center">
+                        <label id="cards" class="col-md-3 ">
+                            <input type="radio" name="recheio" value="ninho e frutas vermelhas" required>
+                            <div class="card card-decoracao mb-4 bg-dark bg-opacity-50">
+                                <img src="assets/img/sabor1.jpg" class="card-img opacity-50">
+                                <h6 class="card-title">Ninho e Frutas Vermelhas</h6>
+                            </div>
+                        </label>
+                        <label id="cards" class="col-md-3">
+                            <input type="radio" name="recheio" value="prestigio" required>
+                            <div class="card card-decoracao mb-4 bg-dark bg-opacity-50">
+                                <img src="assets/img/sabor4.jpg" class="card-img opacity-50">
+                                <h6 class="card-title">Prestígio</h6>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                <div id="tamanho" class="container mt-4 w-50">
+                    <h5 class="text-center">Tamanhos de Bolo</h5>
+                    <div class="row justify-content-center gap-2">
+                        <label class="card-body card text-center col-md-3">
+                            <input type="radio" name="tamanho" value="pequeno" required>
+                            <h6 class="card-title-tamanho">Pequeno</h6>
+                            <p class="card-text">Serve até 10 pessoas.</p>
+                        </label>
+                        <label class="card-body card text-center col-md-3">
+                            <input type="radio" name="tamanho" value="medio" required>
+                            <h6 class="card-title-tamanho">Médio</h6>
+                            <p class="card-text">Serve até 20 pessoas.</p>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="decoracao" class="container mt-4">
+                    <h5 class="text-center">Decoração Personalizada</h5>
+                    <div class="row justify-content-center align-items-center">
+                        <label id="cards" class="col-md-2">
+                            <input type="radio" name="decoracao" value="decoracao 1" required>
+                            <div class="card card-decoracao mb-4">
+                                <img src="assets/img/bolo1.jpg" class="card-img-top">
+                            </div>
+                        </label>
+                        <label id="cards" class="col-md-2">
+                            <input type="radio" name="decoracao" value="decoracao 2" required>
+                            <div class="card card-decoracao mb-4">
+                                <img src="assets/img/bolo2.jpg" class="card-img-top">
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <input id="submit" type="submit" class="btn btn-primary btn-lg btn-block hover-shadow w-25"></input>
             </div>
         </form>
     </main>

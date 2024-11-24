@@ -67,16 +67,13 @@ header {
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  display: inline-block; 
 }
 
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.opcoes {
-  display: flex;
-  gap: 1rem;
 }
 
 
@@ -86,23 +83,26 @@ input[type="radio"]:checked + .card {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Outra abordagem com pseudo-classe :checked diretamente no input */
+
 input[type="radio"]:checked + img {
   transform: translateY(-10px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Ajuste para o label ter um efeito de transformação */
+
 input[type="radio"]:checked + label {
   transform: translateY(-10px);
   border-color: #007bff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+input[type="radio"]:checked + h6 {
+  color: #007bff; 
+  transition: color 0.3s ease;
+}
 
-.card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
+input[type="radio"]{
+  display:none;
 }
 
 .card-text {
@@ -110,17 +110,12 @@ input[type="radio"]:checked + label {
   color: #555;
 }
 
-.card-img-overlay {
-  background-color: rgba(146, 132, 145, 0.5); 
-  color: white; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.card-title {
+.card .card-title {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  color: white;
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
@@ -156,7 +151,7 @@ footer p {
 
 @media (max-width: 1200px) {
   .img-sobre {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -182,4 +177,10 @@ footer p {
   .img-sobre {
     width: 50%;
   }
+}
+
+#submit{
+  height: 80px;
+  background-color: #9e4a2d;
+  border: 0;
 }
