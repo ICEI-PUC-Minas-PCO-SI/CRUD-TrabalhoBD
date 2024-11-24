@@ -1,25 +1,47 @@
 function AlternarDivs(div1, div2) {
-    document.getElementById(div1).style.display = 'none'; 
-    document.getElementById(div2).style.display = 'block'; 
+    document.getElementById(div1).style.display = 'none';
+    document.getElementById(div2).style.display = 'block';
 
     if (div2 === 'cadastro-area') {
         document.getElementById('fundopreto').style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById('fundopreto').style.opacity = 1;
-        }, 10); 
+        }, 10);
     } else {
         document.getElementById('fundopreto').style.opacity = 0;
-        setTimeout(function() {
+        setTimeout(function () {
             document.getElementById('fundopreto').style.display = 'none';
         }, 500);
     }
 }
 
-document.getElementById('formlogar').addEventListener('submit', (e)=>{
+document.getElementById('formlogar').addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log(10);
-    window.location.href = "/homepage.html";
+
+    const email = document.getElementById('email-login').value;
+    const password = document.getElementById('password-login').value;
+
+    try {
+        const response = await fetch("api/loginUsers", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        // Trata a resposta
+        if (response.ok) { 
+           window.location.href = "homepage.html";
+        } else {
+            alert('Erro ao logar usuário. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao conectar ao servidor.blabla');
+    }
 });
+
+
 
 document.getElementById('form-cadastro').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -29,7 +51,7 @@ document.getElementById('form-cadastro').addEventListener('submit', async (e) =>
     const email = document.getElementById('cadastroemail').value;
     const address = document.getElementById('cadastroendereco').value;
 
-    if(password == password_confirme){
+    if (password == password_confirme) {
         try {
             const response = await fetch("api/users", {
                 method: "POST",

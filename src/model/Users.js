@@ -11,6 +11,19 @@ async function AddUserModel(name, email, password, address){
     }
 }
 
+async function PostUserModel(email,password){
+    try{
+        const result = await pool.query('SELECT * FROM usuario WHERE email = $1 AND password = $2', [email, password]);
+        return result.rows[0];
+    }
+    catch(error){
+        console.error('Erro ao consultar usuário:', error);
+        throw error;
+    }
+}
+
+
 module.exports = {
-    AddUserModel
+    AddUserModel,
+    PostUserModel
 }
