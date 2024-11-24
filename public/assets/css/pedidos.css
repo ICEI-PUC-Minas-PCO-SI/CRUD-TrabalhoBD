@@ -1,0 +1,24 @@
+body {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300 !important;
+    margin: 0;
+    padding: 0;
+    background-color: #e8d2cf !important;
+}
+
+h1{
+    
+    color: #97809b !important; 
+    font-family: "Poppins", sans-serif;
+    font-weight: 400 !important;
+    font-size: 30px !important;
+    margin-bottom: 40px !important;
+}
+
+th{
+    color: #97809b !important; 
+    background-color: #e0d5e4 !important;
+}
+td{
+    background-color: #f0eaf4 !important;
+}
