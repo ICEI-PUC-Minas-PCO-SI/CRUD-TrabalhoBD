@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             pedidos.forEach(pedido => {
                 const linha = document.createElement('tr');
 
-                linha.innerHTML = `<td>1</td>
-                                    <td>${pedido.id_pedido}</td>
+                linha.innerHTML = `<td>${pedido.id_pedido}</td>
+                                    <td>${pedido.id_usuario}</td>
                                     <td>${pedido.data}</td>
                                     <td>${formatadorMoeda.format(pedido.valor_total)}</td>
                                     <td>
