@@ -63,14 +63,42 @@ header {
 }
 
 .card {
-  border: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.opcoes {
+  display: flex;
+  gap: 1rem;
+}
+
+
+input[type="radio"]:checked + .card {
+  transform: translateY(-10px);
+  border-color: #007bff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Outra abordagem com pseudo-classe :checked diretamente no input */
+input[type="radio"]:checked + img {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ajuste para o label ter um efeito de transformação */
+input[type="radio"]:checked + label {
+  transform: translateY(-10px);
+  border-color: #007bff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 
 .card-title {
   font-size: 1.25rem;
