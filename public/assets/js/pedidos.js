@@ -1,18 +1,18 @@
-document.addEventListener('DOMContentLoaded', async ()=>{
-    try{
+async function CarregarPedidos() {
+    try {
 
-        const response = await fetch('/api/orders',{
+        const response = await fetch('/api/orders', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        if(response.ok){
+        if (response.ok) {
             const pedidos = await response.json();
 
             const tabela = document.getElementById('tabela-pedidos');
-            tabela.innerHTML="";
-        
+            tabela.innerHTML = "";
+
             const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL'
@@ -31,27 +31,32 @@ document.addEventListener('DOMContentLoaded', async ()=>{
                                     </td>`
                 tabela.appendChild(linha);
             });
-        }else{
+        } else {
             alert("Erro listar pedidos page Pedidos");
-        } 
-    }catch(erro){
+        }
+    } catch (erro) {
         console.error("erro ao Listar pedidos na page Pedidos': " + erro.message);
     }
-});
+};
 
-async function DeletarPedido(idpedido){
+document.addEventListener('DOMContentLoaded', CarregarPedidos);
+
+async function DeletarPedido(idpedido) {
     try {
 
-        const resposta = await fetch(`/api/orders/${idpedido}`, {
+        const resposta = await fetch(`http://localhost:8000/api/orders/${idpedido}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             }
-        })
-        if(resposta.ok){
+        });
+        if (resposta.ok) {
             alert("Delete concluido");
+            await CarregarPedidos();
+        } else {
+            console.error(`Erro ao deletar pedido. Status: ${resposta.status}`);
         }
     } catch (erro) {
-        console.error("erro ao deletar imovel arquivo 'cadatroimovel.js': " + erro);
+        console.error(`Erro ao deletar pedido: ${erro.message}`);
     }
 }
