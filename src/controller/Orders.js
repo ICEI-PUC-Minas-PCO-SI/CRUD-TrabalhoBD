@@ -10,6 +10,18 @@ async function getAllOrders(req, res) {
     }
 };
 
+async function getUserOrdersById(req, res) {
+    const { id } = req.params;
+    console.log(id);
+    try {
+        const orders = await OrdersModel.getUserOrdersById(id);
+        res.status(200).json(orders);
+    } catch (error) {
+        console.error('Erro ao recuperar pedidos controller:', error.message);
+        res.status(500).json({ message: 'Erro no servidor ao recuperar pedidos controller.' });
+    }
+};
+
 async function AddOrderController(req, res) {
     const {finalValue, userId, combinationId} = req.body;
 
@@ -42,5 +54,6 @@ async function deleteOrderById(req, res) {
 module.exports = {
     AddOrderController, 
     getAllOrders, 
+    getUserOrdersById,
     deleteOrderById
 }

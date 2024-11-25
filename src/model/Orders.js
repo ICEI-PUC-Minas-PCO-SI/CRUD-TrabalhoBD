@@ -19,6 +19,16 @@ const getAllOrders = async() => {
     }
 };
 
+const getUserOrdersById = async(userId) => {
+    try {
+        const result = await pool.query(`SELECT * FROM pedidos WHERE id_usuario = $1`, [userId]);
+        return result.rows;
+    }catch(error) {
+        console.error(`Erro ao buscar pedidos do usuário ${userId}`, error.message);
+    }
+} 
+
+
 const deleteOrderById = async (orderId) => {
     try {
         const result = await pool.query(`DELETE FROM pedidos WHERE id_pedido = $1`, [orderId]);
@@ -32,5 +42,6 @@ const deleteOrderById = async (orderId) => {
 module.exports = {
     addOrder,
     getAllOrders,
+    getUserOrdersById,
     deleteOrderById
 }

@@ -1,12 +1,23 @@
 async function CarregarPedidos() {
     try {
+        const usuario_logado = JSON.parse(localStorage.getItem('usuario_logado'));
+        //console.log(usuario_logado);
+        if (usuario_logado == 2) {
+            response = await fetch('/api/orders', {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        } else {
+            response = await fetch(`/api/orders/${usuario_logado}`, {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
 
-        const response = await fetch('/api/orders', {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
         if (response.ok) {
             const pedidos = await response.json();
 
