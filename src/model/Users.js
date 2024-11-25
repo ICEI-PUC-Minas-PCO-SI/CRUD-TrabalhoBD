@@ -2,7 +2,7 @@ const pool = require("../db/connection");
 
 async function AddUserModel(name, email, password, address){
     try{
-        const result = await pool.query('INSERT INTO usuario (name, email, password, address) VALUES ($1, $2, $3, $4)', [name, email, password, address]);
+        const result = await pool.query('INSERT INTO usuarios (nome, email, senha, endereco) VALUES ($1, $2, $3, $4)', [name, email, password, address]);
         return result.rows[0];
     }
     catch(error){
@@ -13,7 +13,7 @@ async function AddUserModel(name, email, password, address){
 
 async function PostUserModel(email,password){
     try{
-        const result = await pool.query('SELECT * FROM usuario WHERE email = $1 AND password = $2', [email, password]);
+        const result = await pool.query('SELECT * FROM usuarios WHERE email = $1 AND senha = $2', [email, password]);
         return result.rows[0];
     }
     catch(error){

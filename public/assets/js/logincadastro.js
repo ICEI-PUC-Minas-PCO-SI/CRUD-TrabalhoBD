@@ -28,16 +28,21 @@ document.getElementById('formlogar').addEventListener('submit', async (e) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ email, password })
-        });
+        })
         // Trata a resposta
-        if (response.ok) { 
-           window.location.href = "homepage.html";
+        if (response.ok) {
+            const res = await response.json();
+
+            const idUsuario = res.id_usuario;
+            localStorage.setItem('usuario_logado', JSON.stringify(idUsuario));
+
+            window.location.href = "homepage.html";
         } else {
             alert('Erro ao logar usuário. Tente novamente.');
         }
     } catch (error) {
         console.error('Erro na requisição:', error);
-        alert('Erro ao conectar ao servidor.blabla');
+        alert('Erro ao conectar ao servidor');
     }
 });
 
