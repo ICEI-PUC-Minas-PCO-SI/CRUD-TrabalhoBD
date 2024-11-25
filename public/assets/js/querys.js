@@ -50,7 +50,18 @@ const selectCombinationId = `SELECT id_combinacao
         AND sabor_recheio = $2
         AND tamanho = $3
         AND descricao_decoracao = $4;
-    `
+    `;
+
+const getUserOrders = `SELECT * FROM pedidos WHERE id_usuario = $1;`;
+
+const getUserOrdersById = async(userId) => {
+    try {
+        const result = await db.query(getUserOrders, [userId]);
+        return result.rows;
+    }catch(error) {
+        console.error(`Erro ao buscar pedidos do usuário ${userId}`, error.message);
+    }
+} 
 
 const createTable = async (tableName) => {
     try {
