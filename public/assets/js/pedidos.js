@@ -32,12 +32,21 @@ async function CarregarPedidos() {
             pedidos.forEach(pedido => {
                 const linha = document.createElement('tr');
 
+                // PUXANDO a data atual pra fica bunitin kkk
+                const datanaoformat = new Date(pedido.data);
+                const dia = String(datanaoformat.getDate()).padStart(2, '0');
+                const mes = String(datanaoformat.getMonth() + 1).padStart(2, '0');
+                const ano = String(datanaoformat.getFullYear());
+                const data = `${dia}/${mes}/${ano}`;
+
                 linha.innerHTML = `<td>${pedido.id_pedido}</td>
                                     <td>${pedido.id_usuario}</td>
-                                    <td>${pedido.data}</td>
+                                    <td>${data}</td>
                                     <td>${formatadorMoeda.format(pedido.valor_total)}</td>
-                                    <td>
-                                        <button class="btn btn-sm" style="background-color: #efdbd8 !important">Editar</button>
+                                    <td class="d-flex gap-3">
+                                        <a href="/editarpedido?id_pedido=${pedido.id_pedido}">
+                                            <button class="btn btn-sm" style="background-color: #efdbd8 !important" type="submit">Editar</button>
+                                        </a>
                                         <button onclick="DeletarPedido(${pedido.id_pedido})" class="btn btn-sm" style="background-color: #d9cfdc !important">Excluir</button>
                                     </td>`
                 tabela.appendChild(linha);
@@ -70,4 +79,4 @@ async function DeletarPedido(idpedido) {
     } catch (erro) {
         console.error(`Erro ao deletar pedido: ${erro.message}`);
     }
-}
+};

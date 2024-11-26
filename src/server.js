@@ -10,12 +10,16 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res)=> {
   res.sendFile(path.join(__dirname, '../public', 'login.html'));
 });
+app.get('/editarpedido', (req, res)=> {
+  res.sendFile(path.join(__dirname, '../public', 'editarpedido.html'));
+});
 
 app.use(express.json());
-
 app.use('/api', combinationRouter);
 app.use('/api', userRouter);
 app.use('/api', orderRouter);
+
+
 
 
 app.listen(8000, ()=>{

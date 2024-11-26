@@ -39,9 +39,20 @@ const deleteOrderById = async (orderId) => {
     }
 };
 
+const updateOrderById = async (date, value,combinationId, orderId ) => {
+    try {
+        const result = await pool.query(`UPDATE pedidos SET data = $1, valor_total = $2, id_combinacao= $3 WHERE id_pedido = $4`, [date, value, combinationId, orderId]);
+        console.log("Pedido editado com sucesso");
+        return result.rows;
+    } catch (error) {
+        console.error(`Erro ao editar pedido ${orderId} `, error.message);
+    }
+};
+
 module.exports = {
     addOrder,
     getAllOrders,
     getUserOrdersById,
-    deleteOrderById
+    deleteOrderById,
+    updateOrderById
 }
