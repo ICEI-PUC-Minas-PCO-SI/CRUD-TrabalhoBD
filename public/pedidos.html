@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <script src="assets/js/protected.js"></script>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
@@ -41,6 +42,7 @@
                     </ul>
                 </div>
             </div>
+            <button type="submit" id="logout" class="btn btn-danger btn-sm btn-block hover-shadow mx-4">Sair</button>
         </nav>
     </header>
     <div class="container mt-5">
@@ -61,6 +63,12 @@
         </div>
     </div>
     <script src="assets/js/pedidos.js"></script>
+    <script>
+        document.getElementById("logout").addEventListener("click", ()=>{
+            localStorage.removeItem("usuario_logado");
+            alert("Saindo...")
+            location.href = "index.html";
+        })</script>
 </body>
 
 </html>

@@ -50,32 +50,57 @@ document.getElementById('formlogar').addEventListener('submit', async (e) => {
 
 document.getElementById('form-cadastro').addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const name = document.getElementById('cadastronome').value;
     const password = document.getElementById('cadastrosenha').value;
     const password_confirme = document.getElementById('confirmarsenha').value;
     const email = document.getElementById('cadastroemail').value;
     const address = document.getElementById('cadastroendereco').value;
 
-    if (password == password_confirme) {
-        try {
-            const response = await fetch("api/users", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, email, password, address })
-            });
-            // Trata a resposta
-            if (response.ok) {
-                alert('Usuário cadastrado com sucesso!');
-                // Opcional: Limpar os campos do formulário
-                AlternarDivs('cadastro-area', 'login-area');
-            } else {
-                alert('Erro ao cadastrar usuário. Tente novamente.');
-            }
-        } catch (error) {
-            console.error('Erro na requisição:', error);
-            alert('Erro ao conectar ao servidor.blabla');
-        }
+    if (name.trim() === '') {
+        alert('Por favor, insira um nome válido.');
+        return;
     }
-})  
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+    }
+
+    const senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+    if (!senhaRegex.test(password)) {
+        alert('A senha deve ter no mínimo 8 caracteres, incluir pelo menos uma letra maiúscula, um número e um caractere especial.');
+        return;
+    }
+
+    if (password !== password_confirme) {
+        alert('As senhas não coincidem. Tente novamente.');
+        return;
+    }
+
+    if (address.trim() === '') {
+        alert('Por favor, insira um endereço válido.');
+        return;
+    }
+
+    try {
+        const response = await fetch("api/users", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password, address })
+        });
+
+        if (response.ok) {
+            alert('Usuário cadastrado com sucesso!');
+            AlternarDivs('cadastro-area', 'login-area');
+        } else {
+            alert('Erro ao cadastrar usuário. Tente novamente.');
+        }
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+        alert('Erro ao conectar ao servidor. Tente novamente.');
+    }
+});
