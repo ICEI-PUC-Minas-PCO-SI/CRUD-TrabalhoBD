@@ -18,7 +18,44 @@ async function CarregarPedidos() {
             });
         }
 
-        if (response.ok) {
+        if (response.ok && usuario_logado == 2) {
+            const pedidos = await response.json();
+
+            const tabela = document.getElementById('tabela-pedidos');
+            tabela.innerHTML = "";
+            const coluna = document.getElementById('colunas-ped');
+            coluna.innerHTML = '<th>ID do Pedido</th><th>ID Usuario</th><th>Data</th><th>Nome</th><th>Endereço</th><th>E-mail</th><th>Valor</th><th>Editar</th>';
+            const formatadorMoeda = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            pedidos.forEach(pedido => {
+                const linha = document.createElement('tr');
+
+                // PUXANDO a data atual pra fica bunitin kkk
+                const datanaoformat = new Date(pedido.data);
+                const dia = String(datanaoformat.getDate()).padStart(2, '0');
+                const mes = String(datanaoformat.getMonth() + 1).padStart(2, '0');
+                const ano = String(datanaoformat.getFullYear());
+                const data = `${dia}/${mes}/${ano}`;
+
+                linha.innerHTML = `<td>${pedido.id_pedido}</td>
+                                    <td>${pedido.id_usuario}</td>
+                                    <td>${data}</td>
+                                    <td>${pedido.nome}</td>
+                                    <td>${pedido.endereco}</td>
+                                    <td>${pedido.email}</td>
+                                    <td>${formatadorMoeda.format(pedido.valor_total)}</td>
+                                    <td class="d-flex gap-3">
+                                        <a href="/editarpedido?id_pedido=${pedido.id_pedido}">
+                                            <button class="btn btn-sm" style="background-color: #efdbd8 !important" type="submit">Editar</button>
+                                        </a>
+                                        <button onclick="DeletarPedido(${pedido.id_pedido})" class="btn btn-sm" style="background-color: #d9cfdc !important">Excluir</button>
+                                    </td>`
+                tabela.appendChild(linha);
+            });
+        } else if (response.ok && usuario_logado != 2) {
             const pedidos = await response.json();
 
             const tabela = document.getElementById('tabela-pedidos');

@@ -12,7 +12,7 @@ const addOrder = async (finalValue, userId, combinationId) => {
 
 const getAllOrders = async() => {
     try {
-        const result = await pool.query(`SELECT * FROM pedidos`);
+        const result = await pool.query(`SELECT * FROM pedidos INNER JOIN usuarios ON pedidos.id_usuario = usuarios.id_usuario`);
         return result.rows;
     }catch(error) {
         console.error("Erro ao exibir todos os pedidos Model");
